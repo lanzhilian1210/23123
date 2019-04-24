@@ -1,7 +1,7 @@
 
 import wx from 'weixin-js-sdk';
 import { getWx } from '../../api/api';
-export const wechatConfig = () =>{ //create获取config
+export const wechatConfig = (that) =>{ //create获取config
     let url = location.href.split('#')[0]
     getWx({
         url: url
@@ -20,7 +20,7 @@ export const wechatConfig = () =>{ //create获取config
                 'updateAppMessageShareData', 'updateTimelineShareData'
             ] // 必填，需要使用的JS接口列表
         });
-        let _this = this;
+        let _this = that;
          let loc =  window.location
         let shareUrl = loc.origin+loc.pathname+loc.hash
         wx.ready(function() {

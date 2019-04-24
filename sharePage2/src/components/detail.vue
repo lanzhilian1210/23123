@@ -16,13 +16,13 @@
                 <div class="img num9" v-if="pics.length>0">
                     <ul>
                         <li v-for="(items,index) in pics" :key="index">
-                            <img :src="`${apiUrl}/attach/img/${id}`"></li>
+                            <img :src="`${apiUrl}/attach/img/${items.id}`"></li>
                     </ul>
                 </div>
                 <div class="img" v-else>
                     <ul>
                         <li v-for="(items,index) in pics" :key="index">
-                            <img :src="`${apiUrl}/attach/img/${id}`"></li>
+                            <img :src="`${apiUrl}/attach/img/${items.id}`"></li>
                     </ul>
                 </div>
                 <div class="zlBox2">

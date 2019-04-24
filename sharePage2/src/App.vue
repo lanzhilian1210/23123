@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <!-- <headerS></headerS> -->
+    <headerS></headerS>
     <!-- <component v-bind:is="currentTabComponent"></component>-->
     <!-- <ticketShare/> -->
     <router-view/>

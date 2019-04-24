@@ -7,6 +7,7 @@ const articles = () => import('../components/articleShare.vue');
 const detail = () => import('../components/detail.vue');
 const worksList = () => import('../components/worksList.vue');
 const articleList = () => import('../components/articleList.vue');
+const communityList = () => import('../components/communityList.vue');
 Vue.use(Router)
 
 export default new Router({
@@ -46,6 +47,11 @@ export default new Router({
 			path: '/share/articleList',
 			name: 'articleList',
 			component: articleList
+		},
+		{
+			path: '/share/communityList/:id',
+			name: 'communityList',
+			component: communityList
 		}
   ]
 })

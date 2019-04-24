@@ -30,9 +30,13 @@ export const getProduct = (id) => {
 export const getUers = (id) => {
     return axios.get(`${base}/api/v1/share/users/${id}`).then(res => res.data);
 };
+// 社区板块分享list
+export const getCommunityList = (id,authorId) => {
+    return axios.get(`${base}/api/v1/share/plates/${id}?authorId=${authorId}`).then(res => res.data);
+};
 // 社区板块分享
 export const getCommunity = (id,authorId) => {
-    return axios.get(`${base}/api/v1/share/plates/${id}?authorId=${authorId}`).then(res => res.data);
+    return axios.get(`${base}/api/v1/share/plates/${id}`).then(res => res.data);
 };
 //展评分享接口
 export const getEvaluations = (id) => {
