@@ -61,7 +61,7 @@
             this.wechatConfig()
         },
         mounted() {
-            console.log(this.latestComments);
+            // console.log(this.latestComments);
             const id = this.$route.params.id;
         },
         methods: {

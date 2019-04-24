@@ -1,5 +1,6 @@
 
 import wx from 'weixin-js-sdk';
+import { getWx } from '../../api/api';
 export const wechatConfig = () =>{ //create获取config
     let url = location.href.split('#')[0]
     getWx({
@@ -58,5 +59,4 @@ export const wechatConfig = () =>{ //create获取config
     }).catch(() => {
         // this.$vux.loading.hide()
     });
-    console.log(1);
 };

@@ -3,8 +3,10 @@
         <ul>
             <li v-for="(item,index) in latestLikeAuthors" :key="index">
                 <img data-v-a0559e02="" data-v-43092277="" :src="`${apiUrl}/attach/img/${item.avatarId}`" alt="" class="authorImg">
-                <div class="name">罗密欧与麦当娜</div>
-                <div class="time">2小时前</div>
+                <!-- <div class="name">罗密欧与麦当娜</div>
+                <div class="time">2小时前</div> -->
+                <div class="name">{{item.user.nickname}}</div>
+                <div class="time">{{item.likeDate}}</div>
             </li>
         </ul>
     </div>
