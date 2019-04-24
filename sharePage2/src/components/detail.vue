@@ -26,7 +26,7 @@
                     </ul>
                 </div>
                 <div class="zlBox2">
-                    <img src="http://rs.artree.net.cn/assets/rich/2018/02/08/1e6ccd66-fc19-48ba-989f-d717b75e0ded.jpeg">
+                    <img :src="`${apiUrl}/attach/img/${mainPicId}`">
                     <div class="con">
                         <div class="tit">{{name}}</div>
                         <div class="time" v-if="expireDays>0">{{expireDays}}天后结束</div>
@@ -93,6 +93,7 @@
                 latestComments:[],//评论
                 latestLikeAuthors:[], // 喜欢
                 pics:[],
+                mainPicId:'',//url
             }
         },
         created() {
@@ -113,6 +114,7 @@
                     this.pics = res.data.pics;
                     this.label = res.data.exhibition.type.label;
                     this.name = res.data.exhibition.name;
+                    this.mainPicId = res.data.exhibition.mainPicId;
                     this.endDay = res.data.exhibition.endDay;
                     this.landmark = res.data.exhibition.landmark;
                     this.cityName = res.data.exhibition.landmark.city.name;
