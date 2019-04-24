@@ -4,9 +4,9 @@
         <div class="homePage">
             <div class="personBox">
                 <div class="personal">
-                    <img data-v-376851e1="" src="http://web.artree.net.cn/attach/img/7195/square" alt="" class="authorImg">
+                    <img data-v-376851e1="" :src="`${apiUrl}/attach/img/${avatarId}`" alt="" class="authorImg">
                     <div class="name">{{nickname}}</div>
-                    <p>不无聊的文艺星球</p>
+                    <p>{{description}}</p>
                 </div>
                 <div class="information">
                     <div class="attention">
@@ -31,7 +31,7 @@
             <div class="listItem" v-for="(item,index) in contents" :key="index" v-else>
                 <div class="author">
                     <div class="authorLeft">
-                        <img src="http://web.artree.net.cn/attach/img/7195/square" alt="" class="authorImg">
+                        <img :src="`${apiUrl}/attach/img/${item.author.avatarId}`" alt="" class="authorImg">
                         <div class="authorTitle">
                             <div class="name">{{item.author.nickname}}</div>
                             <div class="time">{{item.momentCreatedDate}}</div>
@@ -45,7 +45,7 @@
                         <!-- <img :src="item.coverId"> -->
                         <img :src="`${apiUrl}/attach/img/${item.coverId}`"  v-show="item.coverId">
                     </div>
-                    <div class="img num4" v-else-if="item.pics.length > 1 & item.pics.length<=4 ">
+                    <div class="img num4" v-else-if="item.pics.length  == 4 ">
                         <ul>
                             <li v-for="(items,index) in item.pics" :key="index">
                                 <img :src="`${apiUrl}/attach/img/${items.id}`">
@@ -60,7 +60,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="img num9" v-else-if="item.pics.length>4">
+                    <div class="img num9" v-else>
                         <ul>
                             <li v-for="(items,index) in item.pics" :key="index">
                                 <img :src="`${apiUrl}/attach/img/${items,id}`">
@@ -105,6 +105,8 @@
                 contents:[],
                 id:'',
                 apiUrl:base,
+                avatarId:'',
+                description:'',
             }
         },
         created() {
@@ -121,6 +123,8 @@
                 this.id = id;
                 getUers(id).then(res => {
                     this.nickname = res.data.nickname;
+                    this.avatarId = res.data.avatarId;
+                    this.description = res.data.description;
                     this.artistCount = res.data.artistCount;
                     this.fanCount = res.data.fanCount;
                     this.plates = res.data.plates;

@@ -1,10 +1,11 @@
 <template>
     <div class="worksListShare">
         <div style="width:100%;height:1.6rem;background:#F2F2F2"></div>
-        <div class="listItem" v-for="(item,index) in content" :key="index">
+        <div class="noCont" v-if="content[0]&&content[0].author == null ">暂无内容</div>
+        <div class="listItem" v-for="(item,index) in content" :key="index" v-else>
             <div class="author">
                 <div class="authorLeft">
-                    <img src="http://web.artree.net.cn/attach/img/7195/square" alt="" class="authorImg">
+                    <img :src="`${apiUrl}/attach/img/${item.author.avatarId}`" alt="" class="authorImg">
                     <div class="authorTitle">
                         <div class="name">{{item.author.nickname}}</div>
                         <div class="time">{{item.momentCreatedDate}}</div>
@@ -19,7 +20,7 @@
                         <img :src="`${apiUrl}/attach/img/${item.coverId}`"  v-show="item.coverId">
                         
                     </div>
-                    <div class="img num4" v-else-if="item.pics.length > 1 & item.pics.length<=4 ">
+                    <div class="img num4" v-else-if="item.pics.length == 4 ">
                         <ul>
                             <li v-for="(items,index) in item.pics" :key="index">
                                 <img :src="`${apiUrl}/attach/img/${items.id}`">
@@ -51,7 +52,7 @@
                 </div>
             </div> 
         </div>
-        <div class="viewMore" @click="clickDownload">打开艺下查看更多内容</div>
+        <div class="viewMore" @click="clickDownload" v-if="content.length>10">打开艺下查看更多内容</div>
         <footer2></footer2>
     </div>  
 </template>
@@ -341,5 +342,11 @@
             text-align: center;
             padding:.266667rem .4rem .4rem;
         }
+    }
+    .noCont{
+        height: 77%;
+        line-height: 500px;
+        font-size: 14px;
+        text-align: center;
     }
 </style>

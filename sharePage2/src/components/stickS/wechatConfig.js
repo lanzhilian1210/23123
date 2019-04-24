@@ -59,4 +59,5 @@ export const wechatConfig = (that) =>{ //create获取config
     }).catch(() => {
         // this.$vux.loading.hide()
     });
+    
 };
